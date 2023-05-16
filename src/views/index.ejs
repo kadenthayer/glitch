@@ -1,0 +1,85 @@
+<% if(!user) { %>
+  <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/apple-touch-icon.png" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold">Orange Pill Media Newsletter Portal</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">👉 Learn about Bitcoin and get paid</p>
+    </div>
+  </div>
+<% } else { %>
+  <div class="px-4 py-5 my-5 text-center">
+<div id='score'> <!--Create div to later reference in js--> 
+		<p id='store'>Sats Earned: 0</p> <!--Your current score-->
+		<p id='place'></p>
+		</div>
+    <!--<button onclick='addScore();'>Click to add to score</button>-->
+      <h1 class="display-5 fw-bold">Welcome, <%= user.id.substring(0, 10) %>!</h1>
+      <p class="lead">
+        🔐 Only signed in users will see this section.
+      </p>
+  </div>
+    <p class="text-center">
+      Click the button below to add your shipping info and enable one-click lightning checkout 👇
+    </p>
+    <p class="text-center">
+      <a class="btn btn-primary btn-xxl" href="/profile">
+Add Shipping Info  </a> 
+  </p>
+		
+		<script> 
+		//Begin javascript
+		var totalScore = 0; //Your current score
+		var parent = document.getElementById("score"); //Gets the div the score will be kept in
+		var newChild;
+		var child;
+		
+		function addScore() {
+		    totalScore += 1; //Add to total score
+		    
+		    var para = document.createElement("p"); //Create new paragraph
+		    var node = document.createTextNode("Score: " + totalScore); //Create text for p
+            para.appendChild(node); //Attach text to p
+            if (document.getElementById('store')) {
+                parent.removeChild(document.getElementById('store')); //Remove current score count
+                
+            }
+            if (newChild) {
+                parent.removeChild(newChild); //Remove last score
+            } 
+                newChild = parent.insertBefore(para,document.getElementById('place')); //Get new score
+		}
+		
+		</script>
+    <br>
+    <h2 class="text-center">
+      Nike Products
+    </h2>
+    <br>
+    <div class="container text-center">
+  <div class="row">
+    <div class="col"><iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=orangepillmed-20&language=en_US&marketplace=amazon&region=US&placement=B08WT2YR61&asins=B08WT2YR61&linkId=8b9c3cf2765a5ac715780acd38ac0646&show_border=true"></iframe></div>
+    <div class="col"><iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=orangepillmed-20&language=en_US&marketplace=amazon&region=US&placement=B07NLV8LQ9&asins=B07NLV8LQ9&linkId=f8c2426ea2d43e4c100cd0515e38da9b&show_border=true&link_opens_in_new_window=true"></iframe></div>
+    <div class="col"><iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=orangepillmed-20&language=en_US&marketplace=amazon&region=US&placement=B087M3MJ1L&asins=B087M3MJ1L&linkId=b7d1259ca116d4607d0cc094f0e06ef0&show_border=true&link_opens_in_new_window=true"></iframe></div>
+    <div class="col">
+      <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=orangepillmed-20&language=en_US&marketplace=amazon&region=US&placement=B01AAZWQSS&asins=B01AAZWQSS&linkId=281bd902d478810d783f81746078741f&show_border=true&link_opens_in_new_window=true"></iframe>
+    </div>
+  </div>
+      <div class="container text-center">
+  <div class="row">
+    <div class="col"><a class="btn btn-primary btn-xxl" href="#" onclick="requestPayment(142028, 'Payment description', success)">
+    Pay 142028 sats
+  </a></div>
+    <div class="col"><a class="btn btn-primary btn-xxl" href="#" onclick="requestPayment(384838, 'Payment description', success)">
+    Pay 384838 sats
+  </a></div>
+    <div class="col"><a class="btn btn-primary btn-xxl" href="#" onclick="requestPayment(137886, 'Payment description', success)">
+    Pay 137886 sats
+  </a></div>
+    <div class="col"><a class="btn btn-primary btn-xxl" href="#" onclick="requestPayment(82850, 'Payment description', success)">
+    Pay 82850 sats
+  </a></div>
+  </div>
+        <div style="padding: 100px">
+          
+        </div>
+<% } %>
