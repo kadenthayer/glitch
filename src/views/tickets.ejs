@@ -1,0 +1,47 @@
+<div class="text-center">
+  <h1 class="display-6 fw-bold">Claim your newsletter lottery ticket below 👇</h1>
+</div>
+<div style="padding-bottom: 20px">
+  
+</div>
+<div class="text-center" style="padding-bottom: 10px">
+  <button type="button" class="btn btn-outline-warning" id="liveAlertBtn" onclick="goldClick()">Claim Ticket</button>
+</div> 
+<div id="liveAlertPlaceholder"></div>
+<div style = "padding: 20px">
+  
+</div>
+<div class="text-center">
+<p>Tickets:<a id="gold">0</a>/1</p>
+</div>
+<script>
+var gold = 0;
+var goldMaxLimit = 1;
+function goldClick(){
+   if(gold <= goldMaxLimit){
+       gold = + 1;
+       document.getElementById("gold").innerHTML = gold;
+    }
+}
+  </script>
+<script>
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Nice, you just claimed 1 ticket!', 'success')
+  })
+}
+</script>
